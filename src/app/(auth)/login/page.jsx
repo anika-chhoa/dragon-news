@@ -1,10 +1,20 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginPage = () => {
-  const handleLoginForm = (data) => {
-    console.log(data);
+  const handleLoginForm = async(data) => {
+    const { email, password } = data;
+    const { data:res, error } = await authClient.signIn.email({
+    email: email,
+    password: password,
+    rememberMe: true,
+    callbackURL: "/",
+});
+console.log(res,error)
   };
 const {
     register,
@@ -12,6 +22,7 @@ const {
     watch,
     formState: { errors },
   } = useForm()
+  const [isShowPass,setIsShowPass]=useState(false);
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
       <div className="p-12 rounded-md bg-white">
@@ -30,16 +41,19 @@ const {
             />
             {errors.email && <span className="text-red-600">{errors.email.message}</span>}
           </fieldset>
-          <fieldset className="fieldset">
+          <fieldset className="fieldset relative">
             <legend className="fieldset-legend text-lg">Password</legend>
             <input
-              type="password"
+              type={isShowPass ? "text" : "password"}
             
             {...register("password", { required: "Password field is required" })}
               className="input bg-slate-100 w-full"
               placeholder="Enter your password"
               minLength="8"
             />
+            <span onClick={()=>setIsShowPass(!isShowPass)} className="absolute right-2 top-4.5 cursor-pointer">
+              {isShowPass?<FaEye/>:<FaEyeSlash />} 
+              </span>
             {errors.password && <span className="text-red-600">{errors.password.message}</span>}
             {/* <p className="label text-xs">Must be more than 8 characters, including number and uppercase letter</p> */}
           </fieldset>
