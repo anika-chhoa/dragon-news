@@ -34,6 +34,7 @@ const Navbar = () => {
               alt="avatarImg"
               width={50}
               height={50}
+              className="rounded-full"
             />
             <button
               onClick={async () => await authClient.signOut()}
