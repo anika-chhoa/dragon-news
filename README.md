@@ -1,4 +1,4 @@
-# 🐉 Dragon News
+# Dragon News
 
 A modern and dynamic news platform built with Next.js where users can explore latest news, authenticate securely, and enjoy a clean responsive reading experience.
 
@@ -108,19 +108,33 @@ Then open:
 http://localhost:3000
 
 🎯 Learning Outcomes
-Authentication system implementation
-OAuth login (Google & GitHub)
-API integration for dynamic content
-Protected routes in Next.js
-Real-world full-stack project structure
-UI/UX design improvement
+
+-Authentication system implementation
+
+-OAuth login (Google & GitHub)
+
+-API integration for dynamic content
+
+-Protected routes in Next.js
+
+-Real-world full-stack project structure
+
+-UI/UX design improvement
+
 
 🔥 Future Improvements
-Comment system for news articles
-Bookmark/save news feature
-Category-based filtering
-Admin dashboard for news management
-Dark mode support
+
+-Comment system for news articles
+
+-Bookmark/save news feature
+
+-Category-based filtering
+
+-Admin dashboard for news management
+
+-Dark mode support
+
+
 🔗 Relevant Links
 
 🌐 Live Site: https://dragon-news-gray.vercel.app/category/01
